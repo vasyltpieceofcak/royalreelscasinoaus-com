@@ -1,0 +1,20 @@
+
+# Redirects for winbarnsfarm.life
+
+RewriteEngine On
+
+# Redirect non-www HTTP to www
+RewriteCond %{HTTP_HOST} ^winbarnsfarm\.life$ [NC]
+RewriteRule ^(.*)$ http://www.winbarnsfarm.life/$1 [L,R=301]
+
+# Redirect non-www HTTPS to www HTTP
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^winbarnsfarm\.life$ [NC]
+RewriteRule ^(.*)$ http://www.winbarnsfarm.life/$1 [L,R=301]
+
+# Redirect specific pages to homepage
+RewriteRule ^termsandconditions\.html$ http://www.winbarnsfarm.life/ [L,R=301]
+RewriteRule ^enter/enter\.html$ http://www.winbarnsfarm.life/ [L,R=301]
+
+# Redirect /play to external link
+RewriteRule ^play/$ https://record.royalreelspartners.com/_Zu3NrX6pqwRhg6WO2I1rgWNd7ZgqdRLk/1/ [L,R=301]
